@@ -1,0 +1,61 @@
+close all;
+clear all;
+clc;
+i8=imread('lena.bmp');
+figure(8);
+imshow(i8,[]);
+title('k=8');
+saveas(gcf,'lena8.bmp')
+ 
+i7=zeros(512,512);
+i6=zeros(512,512);
+i5=zeros(512,512);
+i4=zeros(512,512);
+i3=zeros(512,512);
+i2=zeros(512,512);
+i1=zeros(512,512);
+for i=1:512
+  for j=1:512
+      i7(i,j)=floor(i8(i,j)/2);
+      i6(i,j)=floor(i7(i,j)/2);
+      i5(i,j)=floor(i6(i,j)/2);
+      i4(i,j)=floor(i5(i,j)/2);
+      i3(i,j)=floor(i4(i,j)/2);
+      i2(i,j)=floor(i3(i,j)/2);
+      i1(i,j)=floor(i2(i,j)/2);
+  end
+end
+figure(7);
+imshow(i7,[]);
+title('k=7');
+saveas(gcf,'lena7.bmp')
+ 
+figure(6);
+imshow(i6,[]);
+title('k=6');
+saveas(gcf,'lena6.bmp')
+ 
+figure(5);
+imshow(i5,[]);
+title('k=5');
+saveas(gcf,'lena5.bmp')
+ 
+figure(4);
+imshow(i4,[]);
+title('k=4');
+saveas(gcf,'lena4.bmp')
+ 
+figure(3);
+imshow(i3,[]);
+title('k=3');
+saveas(gcf,'lena3.bmp')
+ 
+figure(2);
+imshow(i2,[]);
+title('k=2');
+saveas(gcf,'lena2.bmp')
+ 
+figure(1);
+imshow(i1,[]);
+title('k=1');
+saveas(gcf,'lena1.bmp')

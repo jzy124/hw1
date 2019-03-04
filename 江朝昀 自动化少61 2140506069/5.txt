@@ -1,0 +1,34 @@
+close all;
+clear all;
+clc;
+lena=imread('lena.bmp');
+T=[1 0 0;1.5 1 0;0 0 1];
+tform=affine2d(T);
+ls=imwarp(lena,tform);
+% imshow(ls,[]);
+ 
+i1=imresize(ls,[2048,2048],'nearest');
+i2=imresize(ls,[2048,2048],'bilinear');
+i3=imresize(ls,[2048,2048],'bicubic');
+ 
+figure(1);
+subplot(221);imshow(lena,[]);title('original');
+subplot(222);imshow(i1,[]);title('nearest');
+subplot(223);imshow(i2,[]);title('bilinear');
+subplot(224);imshow(i3,[]);title('bicubic');
+%--------------------------------------------------
+elain=imread('elain1.bmp');
+T=[cosd(30) sind(30) 0;-sind(30) cosd(30) 0;0 0 1];
+% er=imrotate(elain,30);
+tform=affine2d(T);
+er=imwarp(elain,tform);
+ 
+i1=imresize(er,[2048,2048],'nearest');
+i2=imresize(er,[2048,2048],'bilinear');
+i3=imresize(er,[2048,2048],'bicubic');
+ 
+figure(2);
+subplot(221);imshow(elain,[]);title('original');
+subplot(222);imshow(i1,[]);title('nearest');
+subplot(223);imshow(i2,[]);title('bilinear');
+subplot(224);imshow(i3,[]);title('bicubic');

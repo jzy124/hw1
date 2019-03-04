@@ -1,0 +1,19 @@
+close all;
+clear all;
+clc;
+lena=imread('lena.bmp');
+i1=imresize(lena,[2048,2048],'nearest');
+i2=imresize(lena,[2048,2048],'bilinear');
+i3=imresize(lena,[2048,2048],'bicubic');
+ 
+% subplot(221);imshow(lena,[]);title('original');
+% subplot(222);imshow(i1,[]);title('nearest');
+% subplot(223);imshow(i2,[]);title('bilinear');
+% subplot(224);imshow(i3,[]);title('bicubic');
+
+figure(1);imshow(i1,[]);title('nearest');
+saveas(gcf,'lena_N.bmp');
+figure(2);imshow(i2,[]);title('bilinear');
+saveas(gcf,'lena_BIL.bmp');
+figure(3);imshow(i3,[]);title('bicubic');
+saveas(gcf,'lena_BIC.bmp');

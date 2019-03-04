@@ -1,0 +1,8 @@
+close all;
+clear all;
+clc;
+lena=imread('lena.bmp');
+a1=mean2(lena);
+a2=std2(lena);
+a1
+a2
